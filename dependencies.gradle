@@ -1,0 +1,58 @@
+
+dependencyManagement {
+    def versions = new Object() {
+        def kotlin = kotlin_version
+        def kotlinCoroutines = "1.2.1"
+        def mapstruct = "1.2.0.Final"
+        def swagger = "2.9.2"
+        def jackson = "2.9.8"
+        def micronautVersion = "1.1.0"
+        def swaggerCore = "2.0.3"
+    }
+
+    imports {
+        mavenBom "io.micronaut:micronaut-bom:${versions.micronautVersion}"
+    }
+    
+    // micronaut dependencies
+    dependencies {
+        dependency("io.swagger.core.v3:swagger-annotations:${versions.swaggerCore}")
+    }
+
+    dependencies {
+        dependency("org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}")
+        dependency("org.jetbrains.kotlin:kotlin-reflect:${versions.kotlin}")
+        dependency("org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.kotlinCoroutines}")
+        dependency("org.jetbrains.kotlinx:kotlinx-coroutines-guava:${versions.kotlinCoroutines}")
+
+        dependency("com.googlecode.libphonenumber:libphonenumber:8.10.12")
+        
+        dependency("com.fasterxml.jackson.core:jackson-databind:${versions.jackson}")
+        dependency("com.fasterxml.jackson.module:jackson-module-kotlin:${versions.jackson}")
+
+        dependency("com.squareup.okhttp3:okhttp:3.6.0")
+
+        dependency("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.8")
+
+        dependency("org.slf4j:slf4j-api:1.7.26")
+
+        dependency("org.postgresql:postgresql:42.2.5")
+        dependency("org.liquibase:liquibase-core:3.6.3")
+
+        // s3
+        dependency("com.amazonaws:aws-java-sdk:1.11.163")
+
+        // push notifications
+        dependency("com.google.firebase:firebase-admin:6.8.1")
+        dependency("com.turo:pushy:0.13.8")
+
+        dependency("org.mapstruct:mapstruct-jdk8:${versions.mapstruct}")
+        dependency("org.mapstruct:mapstruct-processor:${versions.mapstruct}")
+
+        // testing
+        dependency("org.testcontainers:postgresql:1.7.3")
+        dependency("junit:junit:4.12")
+        dependency("com.github.javafaker:javafaker:0.18")
+        dependency("org.hamcrest:hamcrest-all:1.3")
+    }
+}
